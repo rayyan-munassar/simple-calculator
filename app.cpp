@@ -28,6 +28,17 @@ float divide(float a, float b)
     return a / b;
 }
 
+bool validIntegerInput(int &number)
+{
+    while (!(std::cin >> number))
+    {
+        std::cout << "This is not a valid integer. Please enter a valid integer: " << std::endl;
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+    return true;
+}
+
 bool validOption(int &option)
 {
     if (!(std::cin >> option) || option <= 0 || option > 5)
@@ -71,10 +82,12 @@ int main()
         {
         case 1:
             std::cout << "Please enter the first number: " << std::endl;
-            std::cin >> firstNum;
+
+            validIntegerInput(firstNum);
 
             std::cout << "Enter second number: " << std::endl;
-            std::cin >> secondNum;
+
+            validIntegerInput(secondNum);
 
             std::cout << "The result is: " << add(firstNum, secondNum) << std::endl;
 
@@ -82,10 +95,10 @@ int main()
 
         case 2:
             std::cout << "Please enter the first number: " << std::endl;
-            std::cin >> firstNum;
+            validIntegerInput(firstNum);
 
             std::cout << "Enter second number: " << std::endl;
-            std::cin >> secondNum;
+            validIntegerInput(secondNum);
 
             std::cout << "The result is: " << substract(firstNum, secondNum) << std::endl;
 
@@ -93,10 +106,10 @@ int main()
 
         case 3:
             std::cout << "Please enter the first number: " << std::endl;
-            std::cin >> firstNum;
+            validIntegerInput(firstNum);
 
             std::cout << "Enter second number: " << std::endl;
-            std::cin >> secondNum;
+            validIntegerInput(secondNum);
 
             std::cout << "The result is: " << multiply(firstNum, secondNum) << std::endl;
 
@@ -104,10 +117,10 @@ int main()
 
         case 4:
             std::cout << "Please enter the first number: " << std::endl;
-            std::cin >> firstNum;
+            validIntegerInput(firstNum);
 
             std::cout << "Enter second number: " << std::endl;
-            std::cin >> secondNum;
+            validIntegerInput(secondNum);
 
             std::cout << divide(firstNum, secondNum) << std::endl;
 
